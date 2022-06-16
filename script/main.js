@@ -1,43 +1,39 @@
 
-    // Creating a standard for cycle from 1 to 100
-    for( i = 1; i <= 100; i++) {
+// Creating a standard for cycle from 1 to 100
+for( i = 1; i <= 100; i++) {
 
-        let mainContainer = document.getElementById("container");
+    // Initializing variables for the boxes
+    let mainContainer = document.getElementById("container");
+    let boxContent;
+    let box = document.createElement("div");
+    box.classList.add("box");
+    
+    // Setting a condition where if the index is a 3 or 5 multiplier the console.log will be different
+    if (i % 3 == 0 && i % 5 == 0) {
 
-        // Setting a condition where if the index is a 3 or 5 multiplier the console.log will be different
-        if (i % 3 == 0 && i % 5 == 0) {
+        // #1 Valorizing the variables and giving them css classes for style
+        boxContent = "FizzBuzz";
+        box.classList.add("fizzbuzz");
 
-            let fb = "FizzBuzz";
-            let fizzBuzzBox = document.createElement("div");
-            fizzBuzzBox.classList.add("box", "fizzbuzz");
-            fizzBuzzBox.innerHTML = fb;
-            mainContainer.append(fizzBuzzBox);
-            
-            console.log(fb);
+    } else if (i % 5 == 0) {
 
-        } else if (i % 5 == 0) {
+        // #2
+        boxContent = "Buzz";
+        box.classList.add("buzz");
 
-            let b = "Buzz";
-            let buzzBox = document.createElement("div");
-            buzzBox.classList.add("box", "buzz");
-            buzzBox.innerHTML = b;
-            mainContainer.append(buzzBox);
-            console.log(b);
+    } else if (i % 3 == 0) {
 
-        } else if (i % 3 == 0) {
-            
-            let f = "Fizz";
-            let fizzBox = document.createElement("div");
-            fizzBox.classList.add("box", "fizz");
-            fizzBox.innerHTML = f;
-            mainContainer.append(fizzBox);
-            console.log(f);
+        // #3
+        boxContent = "Fizz";
+        box.classList.add("fizz");
 
-        } else {
-            let normalBox = document.createElement("div");
-            normalBox.classList.add("box");
-            normalBox.innerHTML = i;
-            mainContainer.append(normalBox);
-            console.log(i);
-        }
+    } else {
+
+        // #4
+        boxContent = i;
     }
+
+    box.innerHTML = boxContent;
+    mainContainer.append(box);
+    console.log(boxContent);
+}
